@@ -1,0 +1,641 @@
+/* --- Estilos Globales (Originales) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+body { 
+  font-family: 'Inter', sans-serif; 
+  background-color: #0f172a; /* bg-slate-900 */
+  color: #cbd5e1; /* text-slate-300 */
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos de selección */
+::selection {
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: #ffffff; /* text-white */
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 1152px; /* max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem; /* px-6 */
+  box-sizing: border-box; /* Asegura que el padding no afecte el width */
+}
+
+/* Título de sección genérico */
+.section-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+/* --- Iconos --- */
+.menu-icon {
+  width: 1.5rem; /* w-6 */
+  height: 1.5rem; /* h-6 */
+  color: #ffffff;
+}
+
+.external-link-icon {
+  display: inline-block;
+  margin-left: 0.25rem; /* ml-1 */
+  transition: transform 0.2s ease-in-out;
+  font-size: 0.8em;
+}
+
+.group:hover .external-link-icon {
+  transform: translate(2px, -2px); /* group-hover:translate-x-0.5 group-hover:-translate-y-0.5 */
+}
+
+
+/* --- Header --- */
+.portfolio-header {
+  background-color: rgba(30, 41, 59, 0.8); /* bg-slate-800/80 */
+  backdrop-filter: blur(12px); /* backdrop-blur-md */
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5); /* border-b border-slate-700/50 */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem; /* py-4 */
+  padding-bottom: 1rem; /* py-4 */
+}
+
+.nav-logo {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-logo:hover {
+  color: #60a5fa; /* hover:text-blue-400 */
+}
+
+.nav-menu-desktop {
+  display: none; /* hidden */
+  gap: 1.5rem; /* space-x-6 */
+}
+@media (min-width: 768px) {
+  .nav-menu-desktop {
+    display: flex; /* md:flex */
+  }
+}
+
+.nav-link {
+  color: #cbd5e1; /* text-slate-300 */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: #ffffff; /* hover:text-white */
+}
+
+.nav-menu-mobile {
+  display: block; /* Inicialmente visible */
+}
+@media (min-width: 768px) {
+  .nav-menu-mobile {
+    display: none; /* md:hidden */
+  }
+}
+
+/* --- Hero Section --- */
+/* ... (Todo tu CSS anterior) ... */
+
+/* --- Hero Section --- */
+.hero-section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Modificación para centrar el contenido del Hero */
+.hero-content {
+  display: flex; /* Habilitar flexbox para el contenido */
+  flex-direction: column; /* Apilar elementos verticalmente */
+  align-items: center; /* Centrar horizontalmente los elementos hijos */
+  text-align: center; /* Centrar el texto dentro del hero-content */
+  width: 100%; /* Ocupar todo el ancho disponible */
+}
+
+/* Estilo para la foto de perfil */
+.hero-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #334155;
+  object-fit: cover;
+  /* Margen superior e inferior para separarla del texto */
+  margin-top: 1rem;    /* Espacio arriba del nombre */
+  margin-bottom: 1.5rem; /* Espacio abajo del rol */
+}
+
+.hero-subtitle {
+  color: #60a5fa;
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem; /* Pequeño margen debajo del subtítulo */
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-top: 0.5rem; /* Reducir margen superior ya que la imagen tiene su propio margen */
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  max-width: 48rem;
+  color: #94a3b8;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* ... (El resto de tu CSS para media queries y otros componentes) ... */
+
+/* Asegúrate de que los botones también estén centrados si es necesario */
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center; /* Centrar los botones si están en una fila */
+    align-items: center; /* Centrar los botones si están en una columna */
+    width: 100%; /* Asegurar que los botones ocupen el ancho completo para centrar correctamente */
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+  .hero-description {
+    font-size: 1.25rem;
+  }
+}
+
+/* --- Botones Genéricos --- */
+.btn {
+  font-weight: 700; /* font-bold */
+  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1.125rem; /* text-lg */
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+.btn:hover {
+  transform: scale(1.05); /* hover:scale-105 */
+}
+
+.btn-primary {
+  background-color: #2563eb; /* bg-blue-600 */
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background-color: #1d4ed8; /* hover:bg-blue-700 */
+}
+
+.btn-secondary {
+  border: 1px solid #475569; /* border border-slate-600 */
+  color: #ffffff;
+}
+.btn-secondary:hover {
+  background-color: #334155; /* hover:bg-slate-700 */
+}
+
+/* --- Skills Section --- */
+.skills-section {
+  padding-top: 4rem; /* py-16 */
+  padding-bottom: 4rem; /* py-16 */
+}
+@media (min-width: 768px) {
+  .skills-section {
+    padding-top: 6rem; /* md:py-24 */
+    padding-bottom: 6rem; /* md:py-24 */
+  }
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem; /* gap-3 */
+  max-width: 48rem; /* max-w-3xl */
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .skills-grid {
+    gap: 1rem; /* md:gap-4 */
+  }
+}
+
+.skill-tag {
+  background-color: #334155; /* bg-slate-700 */
+  color: #93c5fd; /* text-blue-300 */
+  font-size: 1rem; /* text-base */
+  font-weight: 500;
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+@media (min-width: 768px) {
+  .skill-tag {
+    font-size: 1.125rem; /* md:text-lg */
+  }
+}
+
+/* --- Experience Section --- */
+.experience-section {
+  padding-top: 4rem; /* py-16 */
+  padding-bottom: 4rem; /* py-16 */
+}
+.experience-section .section-title {
+  margin-bottom: 4rem; /* mb-16 */
+}
+@media (min-width: 768px) {
+  .experience-section {
+    padding-top: 6rem; /* md:py-24 */
+    padding-bottom: 6rem; /* md:py-24 */
+  }
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* space-y-12 */
+  max-width: 48rem; /* max-w-3xl */
+  margin: 0 auto;
+  position: relative;
+  border-left: 2px solid #334155; /* border-l-2 border-slate-700 */
+  padding-left: 2.5rem; /* pl-10 */
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -0.875rem; /* -left-3 */
+  width: 1.5rem; /* w-6 */
+  height: 1.5rem; /* h-6 */
+  background-color: #3b82f6; /* bg-blue-500 */
+  border-radius: 9999px; /* rounded-full */
+  border: 4px solid #0f172a; /* border-4 border-slate-900 */
+}
+
+.timeline-card {
+  background-color: #1e293b; /* bg-slate-800 */
+  padding: 1.5rem; /* p-6 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+  border: 1px solid #334155; /* border border-slate-700 */
+  transition: all 0.3s ease;
+}
+.timeline-card:hover {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); /* hover:shadow-blue-500/20 */
+  border-color: #475569; /* hover:border-slate-600 */
+}
+
+.card-subtitle {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+  color: #60a5fa; /* text-blue-400 */
+}
+.card-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 0.5rem; /* mt-2 */
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+.card-company {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 500;
+  color: #94a3b8; /* text-slate-400 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+.card-text {
+  margin-bottom: 1rem; /* mb-4 */
+  text-align: start;
+  color: #cbd5e1; /* text-slate-300 */
+  line-height: 1.6;
+}
+.card-list {
+  text-align: start;
+  list-style-type: disc;
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* space-y-2 */
+  color: #cbd5e1; /* text-slate-300 */
+  padding-left: 0;
+}
+
+/* --- Projects Section --- */
+.projects-section {
+  padding-top: 4rem; /* py-16 */
+  padding-bottom: 4rem; /* py-16 */
+}
+@media (min-width: 768px) {
+  .projects-section {
+    padding-top: 6rem; /* md:py-24 */
+    padding-bottom: 6rem; /* md:py-24 */
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* grid-cols-1 */
+  gap: 2rem; /* gap-8 */
+  max-width: 1152px; /* max-w-6xl */
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+  }
+}
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+  }
+}
+
+.project-card {
+  background-color: #1e293b; /* bg-slate-800 */
+  padding: 1.5rem; /* p-6 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+  border: 1px solid #334155; /* border border-slate-700 */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+.project-card:hover {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); /* hover:shadow-blue-500/20 */
+  border-color: #475569; /* hover:border-slate-600 */
+  transform: translateY(-4px); /* hover:-translate-y-1 */
+}
+
+.project-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+.project-description {
+  color: #94a3b8; /* text-slate-400 */
+  margin-bottom: 1rem; /* mb-4 */
+  flex-grow: 1; /* flex-grow */
+  line-height: 1.6;
+}
+.project-tags {
+  margin-top: auto; /* mt-auto */
+  padding-top: 1rem; /* pt-4 */
+}
+.project-tag {
+  background-color: #334155; /* bg-slate-700 */
+  color: #93c5fd; /* text-blue-300 */
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 500;
+  margin-right: 0.5rem; /* mr-2 */
+  margin-bottom: 0.5rem; /* mb-2 */
+  padding: 0.125rem 0.625rem; /* px-2.5 py-0.5 */
+  border-radius: 9999px; /* rounded-full */
+  display: inline-block;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+  padding: 4rem 1.5rem; /* py-16 px-6 */
+  margin-top: 4rem; /* mt-16 */
+  background-color: #1e293b; /* bg-slate-800 */
+  border-radius: 0.5rem; /* rounded-lg */
+  /* -mx-6 compensación */
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+@media (min-width: 768px) {
+  .contact-section {
+    padding: 6rem 3rem; /* md:py-24 md:px-12 */
+  }
+}
+
+.contact-content {
+  max-width: 48rem; /* max-w-3xl */
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-content .section-title {
+  margin-bottom: 1rem; /* Ajuste para este h2 */
+}
+
+.contact-description {
+  font-size: 1.125rem; /* text-lg */
+  color: #94a3b8; /* text-slate-400 */
+  margin-top: 1rem; /* mt-4 */
+  margin-bottom: 2.5rem; /* mb-10 */
+  line-height: 1.6;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem; /* gap-6 */
+}
+.contact-buttons .btn {
+  width: 100%; /* w-full */
+}
+
+@media (min-width: 640px) {
+  .contact-buttons {
+    flex-direction: row; /* sm:flex-row */
+  }
+  .contact-buttons .btn {
+    width: auto; /* sm:w-auto */
+  }
+}
+
+.contact-info {
+  margin-top: 3rem; /* mt-12 */
+  font-size: 0.875rem; /* text-sm */
+  color: #64748b; /* text-slate-500 */
+}
+.contact-info p {
+  margin: 0.25rem 0;
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 2.5rem 0; /* py-10 */
+  color: #64748b; /* text-slate-500 */
+  font-size: 0.875rem; /* text-sm */
+  border-top: 1px solid #1e293b; /* border-t border-slate-800 */
+  margin-top: 4rem; /* mt-16 */
+}
+
+/* --- Wrappers --- */
+.portfolio-wrapper {
+  /* Este div contenía las clases de selección,
+     que ya están aplicadas en ::selection */
+}
+
+.main-content {
+  padding-top: 3rem; /* py-12 */
+  padding-bottom: 3rem; /* py-12 */
+}
+@media (min-width: 768px) {
+  .main-content {
+    padding-top: 5rem; /* md:py-20 */
+    padding-bottom: 5rem; /* md:py-20 */
+  }
+}
+
+
+/* ... (Todo tu CSS anterior) ... */
+
+/* --- Hero Section --- */
+/* ... (Estilos de Hero sin cambios) ... */
+
+
+/* ============================================== */
+/* --- Sección Sobre Mí (NUEVOS ESTILOS) --- */
+/* ============================================== */
+.sobre-mi-section {
+  display: flex;
+  flex-wrap: wrap; /* Permite que se envuelva en pantallas pequeñas */
+  align-items: center;
+  gap: 3rem; /* Espacio entre el texto y la imagen */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-top: 1px solid #1e293b; /* Separador opcional */
+  margin-top: 4rem; /* Espacio desde el Hero */
+}
+
+/* Contenedor del texto (columna izquierda) */
+.sobre-mi-content {
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 300px; /* Ancho mínimo antes de envolverse */
+}
+
+/* Título de la sección "Sobre Mí" */
+.sobre-mi-content .section-title {
+  text-align: left; /* Alinea el título a la izquierda */
+  margin-bottom: 2rem;
+}
+
+/* Párrafo de texto */
+.sobre-mi-text {
+  color: #cbd5e1; /* text-slate-300 */
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.7;
+  /* Esta es la clave para respetar tus saltos de línea de Firebase: */
+  white-space: pre-line; 
+}
+
+/* Contenedor de la imagen (columna derecha) */
+.sobre-mi-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 300px; /* Altura mínima */
+  position: relative; /* Necesario para posicionar el anillo */
+}
+
+/* La foto de perfil en esta sección */
+.sobre-mi-photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #334155; /* Borde oscuro */
+  z-index: 10; /* Se asegura que esté sobre el anillo */
+}
+
+/* El anillo azul decorativo (como en tu mockup) */
+.sobre-mi-photo-ring {
+  width: 280px; /* Un poco más grande que la foto */
+  height: 280px;
+  border: 3px solid #3b82f6; /* bg-blue-600 */
+  border-radius: 50%;
+  position: absolute; /* Se posiciona detrás de la foto */
+  z-index: 5;
+  
+  /* Animación sutil de pulso */
+  animation: pulse 4s infinite ease-in-out;
+}
+
+/* Keyframes para la animación del anillo */
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+
+/* --- Skills Section --- */
+/* ... (El resto de tus estilos para Skills, Experience, etc.) ... */
+
+
+/* --- Media Query para Móviles --- */
+@media (max-width: 768px) {
+  /* ... (Tus otros estilos móviles) ... */
+
+  /* Estilos móviles para la nueva sección */
+  .sobre-mi-section {
+    flex-direction: column; /* Apila las columnas verticalmente */
+    margin-top: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .sobre-mi-content .section-title {
+    text-align: center; /* Centra el título en móvil */
+  }
+
+  .sobre-mi-text {
+    text-align: center; /* Centra el texto en móvil */
+  }
+
+  .sobre-mi-image-container {
+    /* Puedes reordenar en móvil si prefieres la imagen primero */
+    /* order: -1; */ 
+    min-height: 280px; /* Reduce la altura en móvil */
+  }
+
+  .sobre-mi-photo {
+    width: 200px; /* Foto más pequeña en móvil */
+    height: 200px;
+  }
+
+  .sobre-mi-photo-ring {
+    width: 230px; /* Anillo más pequeño */
+    height: 230px;
+  }
+}
