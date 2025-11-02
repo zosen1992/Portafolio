@@ -36,7 +36,7 @@ const Header = () => {
     <header className="portfolio-header">
       <nav className="container nav-container">
         <a href="#" className="nav-logo">
-          Ing Mario Márquez S.
+          Ing Marquez S.
         </a>
         {/* Menú para escritorio */}
         <div className="nav-menu-desktop">
