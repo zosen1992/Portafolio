@@ -438,7 +438,7 @@ body {
 }
 @media (min-width: 768px) {
   .contact-section {
-    padding: 6rem 3rem; /* md:py-24 md:px-12 */
+    padding: 1rem 3rem; /* md:py-24 md:px-12 */
   }
 }
 

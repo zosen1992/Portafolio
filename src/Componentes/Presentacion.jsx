@@ -276,55 +276,60 @@ const Experience = () => {
     </section>
   );
 };
+// ==================================================
+// CAMBIO APLICADO: ProjectCard ahora es un enlace
+// ==================================================
 
 /**
- * Componente ProjectCard (Tarjeta de Proyecto)
- * Componente reutilizable que muestra la info de un solo proyecto.
- * @param {object} props
- * @param {string} props.title - Título del proyecto.
- * @param {string} props.description - Descripción del proyecto.
- * @param {string[]} props.tags - Array de tecnologías (tags).
+ * Componente ProjectCard
+ * Renderiza una tarjeta que funciona como enlace (<a>) al proyecto.
+ * @param {string} link - URL del proyecto (nuevo).
  */
-const ProjectCard = ({ title, description, tags }) => {
+const ProjectCard = ({ title, description, tags, link }) => {
   return (
-    <div className="project-card">
-      <h3 className="project-title">{title}</h3>
+    <a 
+      href={link} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="project-card"
+      // Estilos en línea para asegurar que el enlace no se vea azul ni subrayado
+      style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column' }}
+    >
+      {/* Título con icono de enlace externo para indicar clic */}
+      <h3 className="project-title" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        {title} <span style={{ fontSize: '0.7em', opacity: 0.7 }}>&#x2197;</span>
+      </h3>
+      
       <p className="project-description">{description}</p>
+      
       <div className="project-tags">
         {tags.map((tag) => (
-          <span key={tag} className="project-tag">
-            {tag}
-          </span>
+          <span key={tag} className="project-tag">{tag}</span>
         ))}
       </div>
-    </div>
+    </a>
   );
 };
 
 /**
  * Componente Projects
- * Muestra una cuadrícula de proyectos destacados desde Firebase.
- * Utiliza el componente ProjectCard para cada ítem.
+ * Obtiene los proyectos y pasa el campo 'Link' a la tarjeta.
  */
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
-  // Efecto para cargar los proyectos desde Firebase
   useEffect(() => {
     const projectsRef = dbRef(db, 'MarquezInfo/Proyectos');
     const unsubscribe = onValue(projectsRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
         const loadedProjects = Object.values(data);
-        
-        // Formatea los datos: convierte el sub-objeto 'Tecnologias' en un array
         const formattedProjects = loadedProjects.map(project => {
           const tagsArray = (project.Tecnologias && typeof project.Tecnologias === 'object') 
             ? Object.values(project.Tecnologias) 
             : [];
           return { ...project, Tecnologias: tagsArray };
         });
-
         setProjects(formattedProjects);
       } else {
         setProjects([]);
@@ -335,24 +340,20 @@ const Projects = () => {
 
   return (
     <section id="proyectos" className="projects-section">
-      <h2 className="section-title">
-        Proyectos Destacados
-      </h2>
+      <h2 className="section-title">Proyectos Destacados</h2>
       <div className="projects-grid">
         {projects.length > 0 ? (
           projects.map((project, index) => (
-            // Renderiza una tarjeta por cada proyecto
             <ProjectCard 
               key={index} 
               title={project.Titulo}
               description={project.Descripcion}
               tags={project.Tecnologias}
+              link={project.Link} // <-- Pasamos la URL de Firebase
             />
           ))
         ) : (
-          <p style={{ color: '#94a3b8', gridColumn: '1 / -1', textAlign: 'center' }}>
-            Cargando proyectos...
-          </p>
+          <p style={{ color: '#94a3b8', gridColumn: '1 / -1', textAlign: 'center' }}>Cargando proyectos...</p>
         )}
       </div>
     </section>
@@ -371,7 +372,7 @@ const Contact = () => {
           Contacto
         </h2>
         <p className="contact-description">
-          Actualmente estoy abierto a nuevas oportunidades. Si mi perfil encaja con sus necesidades, no dude en contactarme.
+          
         </p>
         
         <div className="contact-buttons">
